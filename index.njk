@@ -1,0 +1,55 @@
+{% extends "_includes/default.njk" %}
+
+{% block title %}Olivier Livet : développeur web, React, Gatsby, Jamstack, Webperf{% endblock %}
+{# {%  var description = test %} #}
+
+{% block content %}
+  <div
+    class="px-3"
+  >
+    <h1>Wanaboat.fr</h1>
+    <div class="grid grid-cols-5 gap-4">
+    {% for ad in contentful %}
+      <div class="shadow rounded-sm overflow-hidden">
+        <div class="relative">
+          <div class="absolute top-0 left-0 p-2 bg-gradient-to-b bg-gray-600 text-white">
+          {{ ad.images.url | length }}
+          </div>
+          <picture>
+            <source
+              type="image/avif"
+              srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=300x300/format=avif/quality=40'
+            />
+            <source
+              type="image/webp"
+              srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=300x300/format=webp/quality=40'
+            />
+                        <source
+              type="image/jpeg"
+              srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=500x500/format=jpeg/quality=40'
+            /> 
+            
+            
+            <img
+              loading="lazy"
+              heigth="240"
+              width="240"
+              src='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=400x400/format=avif/quality=40'
+              alt='{{ad.name}}'
+            />
+          </picture>
+        </div>
+        <div class="p-2">
+          <p class="truncate">{{ ad.name }}</p>
+          <div><span class="rounded-md p-1 bg-green-100 text-gray-800">{{ ad.price }}€</span></div>
+
+        </div>
+      </div>
+    {% endfor %}
+    <div>
+    {# {% image "./src/images/cat.jpg", "photo of my cat" %} #}
+    {# {% include "featured.njk" %}
+    {% include "youtube.njk" %}
+    {% include "last_posts.njk" %} #}
+  </div>
+{% endblock %}  
