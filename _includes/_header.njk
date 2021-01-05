@@ -5,25 +5,29 @@
         w-full
         bg-white
         z-20
+        pt-5
+        px-4 md:px-0
     "
 >
-    <div class="flex">
-        <a class="flex justify-items-center items-center" href="/">
+    <div class="flex space-x-10 justify-between lg:justify-start">
+        <a class="flex space-x-2 items-center" href="/">
             <span class="w-12">
                 {% include '../src/images/logo.svg' %}
             </span>
-            Wanaboat.fr
+            <span class="font-bold text-gray-700 text-xl">
+                Wanaboat.fr
+            <span>
         </a>
-        <div>
-            Menu
+        <div class="flex items-center">
+            {% include "_menu.njk" %}
         </div>
-        {# {% include "_nav.njk" %} #}
     </div>
 </nav>
 <header
     class="
         container
         w-full
+        px-4 md:px-0
         mx-auto
         grid
         gap-2
@@ -32,8 +36,6 @@
         lg:mt-10
         {# justify-between	 #}
         {# items-center #}
-        p-4
-
     " 
     >
     <div
@@ -45,7 +47,7 @@
             ⚓ Wanaboat.fr, les petites annonces nautiques avec politesse et sans arnaques Votre bateau mérite un meilleur coin !
         </p>
         <p class="text-xl">
-            Des dizaines de catamarans, dériveurs, foileurs ou bateaux traditionnels. Le bateau qui correspond à votre programme de navigation se trouve sur Wanaboat, c'est certain !
+            Des dizaines de <a class="text-blue-600 underline" href="/catamarans/">catamarans</a>, <a class="text-blue-600 underline" href="/deriveurs/">dériveurs</a>, <a class="text-blue-600 underline" href="/sportboats/">sportboats</a> foileurs ou bateaux traditionnels. Le bateau qui correspond à votre programme de navigation se trouve sur Wanaboat, c'est certain !
         </p>
         <p>
             Fait avec ❤️  et un 😷  depuis 2007.
@@ -53,9 +55,15 @@
     </div>
     <div class="order-1 lg:order-2">
         {# {% image './img/old-mariner-1.png', 'test' %} #}
-        <image
-            src="./img/old-mariner-1.png"
-            class="mx-auto"
-        />
+        <picture>
+            <source type="image/web" srcset="./img/old-mariner-1.webp" />
+            <source type="image/png" srcset="./img/old-mariner-1.png" />
+            <image
+                loading="lazy"
+                src="./img/old-mariner-1.png"
+                class="mx-auto"
+                alt="Wanaboat.fr, votre bateau mérite un meilleur coin"
+            />
+        </picture>
     </div>
 </header>

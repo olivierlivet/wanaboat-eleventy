@@ -1,0 +1,42 @@
+{% set navItems = [
+        {
+            label:"Catamarans",
+            sub:"Bateaux, voiles, accastillage",
+            url:"/catamarans/"
+        },
+        {
+            label:"Dériveurs",
+            sub:"Bateaux, voiles, accastillage",
+            url:"/catamarans/"
+        }
+    ]
+ %}
+<div
+    class="relative"
+    x-data="{ open: false }"
+>
+    <button @click="open = true" class="bg-blue-700 hover:bg-indigo-600 px-3 text-white p-2 rounded-sm">
+        Menu ↓
+    </button>
+    <div
+        x-show="open"
+        @click.away="open = false"
+        class="fixed bg-gray-50 lg:absolute z-20 rounded-md t-20 shadow-md w-max p-3">
+        <ul class="grid lg:grid-cols-2 gap-4">
+            {% for item in navItems %}
+                <li>
+                    <a class="bg-white border-solid border-white hover:border-gray-200 block p-2 px-4 shadow-sm rounded-sm" href="{{ item.url }}" title="Catamarans occasion">
+                        <span class="uppercase text-base text-blue-600">{{ item.label }}</span><br />
+                        <span>{{ item.sub }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div
+            class="grid grid-cols-2 gap-4"
+        >
+            <a href="/capitainerie/publier">Publier votre annonce</a>
+            <a href="/capitainerie/compte">Votre compte</a>
+        </div>
+    </div>
+</div>
