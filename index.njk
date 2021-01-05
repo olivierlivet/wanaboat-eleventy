@@ -5,46 +5,49 @@
 
 {% block content %}
   <div
-    class="px-3"
+    class="px-3 mt-5 container mx-auto"
   >
-    <h1>Wanaboat.fr</h1>
-    <div class="grid grid-cols-5 gap-4">
-      {% for ad in contentful %}
-        <div class="shadow rounded-sm overflow-hidden">
+    <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-4">
+      {% for ad in lastads %}
+        <a href="{{ad.slug}}" class="block shadow hover:shadow-md hover:scale-105 transform-gpu transition-transform rounded-sm overflow-hidden">
           <div class="relative">
-            <div class="absolute top-0 left-0 p-2 bg-gradient-to-b bg-gray-600 text-white">
-              {{ ad.images.url | length }}
+            <div class="absolute w-full top-0 left-0 p-2 pb-4 bg-gradient-to-t from-transparent to-gray-600 text-xs text-white">
+              {{ ad.images.url | length }} photos
+            </div>
+            <div class="absolute w-full bottom-0 right-0 p-2 pt-4 bg-gradient-to-b from-transparent to-gray-800 text-xs text-white">
+              {{ ad.region }}
             </div>
             <picture>
               <source
-              type="image/avif"
-              srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=300x300/format=avif/quality=40'
-/>
+                type="image/avif"
+                srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=300x300/format=avif/quality=40'
+              />
               <source
-              type="image/webp"
-              srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=300x300/format=webp/quality=40'
-/>
+                type="image/webp"
+                srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=300x300/format=webp/quality=40'
+              />
               <source
-              type="image/jpeg"
-              srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=500x500/format=jpeg/quality=40'
-/>
+                type="image/jpeg"
+                srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=500x500/format=jpeg/quality=40'
+              />
 
               <img
-              loading="lazy"
-              heigth="240"
-              width="240"
-              src='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=400x400/format=avif/quality=40'
-              alt='{{ad.name}}'
-/>
+                loading="lazy"
+                heigth="240"
+                width="240"
+                class='w-full'
+                src='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=400x400/format=avif/quality=40'
+                alt='{{ad.name}}'
+              />
             </picture>
           </div>
           <div class="p-2">
             <p class="truncate">{{ ad.name }}</p>
             <div>
-              <span class="rounded-md p-1 bg-green-100 text-gray-800">{{ ad.price }}€</span></div>
-
+              <span class="rounded-md p-1 text-sm bg-green-100 text-gray-800">{{ ad.price }}€</span>
+            </div>
           </div>
-        </div>
+        </a>
       {% endfor %}
       {# {% image "./src/images/cat.jpg", "photo of my cat" %} #}
       {# {% include "featured.njk" %}
@@ -52,10 +55,15 @@
     {% include "last_posts.njk" %} #}
     </div>
     <div class="flex w-full justify-center p-4">
-      <a
-        href="/annonces/"
-        class="p-1 block bg-blue-800 text-white rounded-sm p-1/2"
-      >Parcourir toutes les annonces</a>
+<a href="/annonces/" class='relative bg-blue-500 hover:bg-blue-600 text-white p-6 rounded text-2xl font-bold overflow-visible'>
+      Parcourir toutes les annonces
+      <div class="absolute top-0 right-0 -mt-4 -mr-4 px-4 py-1 bg-red-500 rounded-full">2000</div>
+  	</a>
+   </div>
+    <div>
+        {% markdown home.fields.body %}
     </div>
+
+ </div>
     <div>
     {% endblock %}

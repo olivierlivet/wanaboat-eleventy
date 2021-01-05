@@ -1,8 +1,11 @@
 const htmlmin = require("html-minifier");
 const Image = require("@11ty/eleventy-img");
+const svgContents = require("eleventy-plugin-svg-contents");
 
+const markdown = require("markdown-it")({ html: true });
 
 module.exports = function (eleventyConfig) {
+    eleventyConfig.addPlugin(svgContents);
 
     eleventyConfig.setUseGitIgnore(false);
     eleventyConfig.addWatchTarget("./_tmp/style.css");
@@ -26,6 +29,11 @@ module.exports = function (eleventyConfig) {
         }
         return content;
     });
+
+    eleventyConfig.addNunjucksShortcode(
+      "markdown",
+      content => `<div class="md-block">${markdown.render(content)}</div>`
+    );
 
     eleventyConfig.addPassthroughCopy({
       "./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js",

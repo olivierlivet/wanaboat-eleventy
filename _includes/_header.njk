@@ -9,16 +9,23 @@
     "
 >
     <div class="flex">
-        <a href="/">
-            Link to home
+        <a class="flex justify-items-center items-center" href="/">
+            <span class="w-12">
+                {% include '../src/images/logo.svg' %}
+            </span>
+            Wanaboat.fr
         </a>
         <div>
             Menu
         </div>
     </div>
+</header>
+
     <div
         class="
+            container
             w-full
+            mx-auto
             grid
             grid-cols-2
             {# justify-between	 #}
@@ -27,22 +34,21 @@
 
         " 
     >
-        <div
-            class="text-gray-500 space-y-4"
-
-        >
-            <h1 class="font-bold size-10 text-blue-600"
-            >Bateaux d'occasion à vendre, annonces voiliers et matériel nautique</h1>
-            <p>
-                ⚓ Wanaboat.fr, les petites annonces nautiques avec politesse et sans arnaques Votre bateau mérite un meilleur coin !
-            </p>
-            <p>
-                Fait avec ❤️  et un 😷  depuis 2007.
-            </p>
-        </div>
-        <div>
-           Image right
-        </div>
+    <div
+        class="text-gray-700 space-y-6"
+    >
+        <h1 class="font-bold text-4xl text-blue-600"
+            >Bateaux d'occasion à vendre, <span class="text-gray-700">annonces voiliers et matériel nautique</span></h1>
+        <p>
+            ⚓ Wanaboat.fr, les petites annonces nautiques avec politesse et sans arnaques Votre bateau mérite un meilleur coin !
+        </p>
+        <p>Des dizaines de catamarans, dériveurs, foileurs ou bateaux traditionnels. Le bateau qui correspond à votre programme de navigation se trouve sur Wanaboat, c'est certain !</p>
+        <p>
+            Fait avec ❤️  et un 😷  depuis 2007.
+        </p>
     </div>
-    {# {% include "_nav.njk" %} #}
-</header>
+    <div>
+        Image right
+    </div>
+</div>
+{# {% include "_nav.njk" %} #}

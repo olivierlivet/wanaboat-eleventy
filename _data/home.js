@@ -1,3 +1,4 @@
+
 require('dotenv').config();
 
 const contentful = require("contentful");
@@ -7,13 +8,9 @@ const client = contentful.createClient({
 });
 
 module.exports = function() {
-  return client.getEntries({ content_type: 'ad', order: '-sys.createdAt', limit: 5 })
+  return client.getEntry('47E66HzdNcvENtKpQBrneI')
   .then(function(response) {
-    const page = response.items
-    .map(function(page) {
-      page.fields.date= new Date(page.sys.updatedAt);
-      return page.fields;
-    });
+    const page = response
     return page;
   })
   .catch(console.error);
