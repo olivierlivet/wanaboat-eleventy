@@ -9,47 +9,53 @@
   >
     <h1>Wanaboat.fr</h1>
     <div class="grid grid-cols-5 gap-4">
-    {% for ad in contentful %}
-      <div class="shadow rounded-sm overflow-hidden">
-        <div class="relative">
-          <div class="absolute top-0 left-0 p-2 bg-gradient-to-b bg-gray-600 text-white">
-          {{ ad.images.url | length }}
-          </div>
-          <picture>
-            <source
+      {% for ad in contentful %}
+        <div class="shadow rounded-sm overflow-hidden">
+          <div class="relative">
+            <div class="absolute top-0 left-0 p-2 bg-gradient-to-b bg-gray-600 text-white">
+              {{ ad.images.url | length }}
+            </div>
+            <picture>
+              <source
               type="image/avif"
               srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=300x300/format=avif/quality=40'
-            />
-            <source
+/>
+              <source
               type="image/webp"
               srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=300x300/format=webp/quality=40'
-            />
-                        <source
+/>
+              <source
               type="image/jpeg"
               srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=500x500/format=jpeg/quality=40'
-            /> 
-            
-            
-            <img
+/>
+
+              <img
               loading="lazy"
               heigth="240"
               width="240"
               src='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=400x400/format=avif/quality=40'
               alt='{{ad.name}}'
-            />
-          </picture>
-        </div>
-        <div class="p-2">
-          <p class="truncate">{{ ad.name }}</p>
-          <div><span class="rounded-md p-1 bg-green-100 text-gray-800">{{ ad.price }}€</span></div>
+/>
+            </picture>
+          </div>
+          <div class="p-2">
+            <p class="truncate">{{ ad.name }}</p>
+            <div>
+              <span class="rounded-md p-1 bg-green-100 text-gray-800">{{ ad.price }}€</span></div>
 
+          </div>
         </div>
-      </div>
-    {% endfor %}
-    <div>
-    {# {% image "./src/images/cat.jpg", "photo of my cat" %} #}
-    {# {% include "featured.njk" %}
+      {% endfor %}
+      {# {% image "./src/images/cat.jpg", "photo of my cat" %} #}
+      {# {% include "featured.njk" %}
     {% include "youtube.njk" %}
     {% include "last_posts.njk" %} #}
-  </div>
-{% endblock %}  
+    </div>
+    <div class="flex w-full justify-center p-4">
+      <a
+        href="/annonces/"
+        class="p-1 block bg-blue-800 text-white rounded-sm p-1/2"
+      >Parcourir toutes les annonces</a>
+    </div>
+    <div>
+    {% endblock %}

@@ -15,9 +15,9 @@
     {% block head %}{% endblock %}
     <script defer src="/js/alpine.js?v={% version %}"></script>
   </head>
-  <body>
+  <body class="border-blue-800 border-l-8 border-10">
     {% include "_header.njk" %}
-    <div class="pt-40">
+    <div class="">
     {% block content %}
       {{ content | safe }}
     {% endblock %}
