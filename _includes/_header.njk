@@ -1,9 +1,8 @@
-<header
+<nav
     class="
+        container
+        mx-auto
         w-full
-        border-b
-        border-solid
-        border-gray-200
         bg-white
         z-20
     "
@@ -18,37 +17,45 @@
         <div>
             Menu
         </div>
+        {# {% include "_nav.njk" %} #}
     </div>
-</header>
+</nav>
+<header
+    class="
+        container
+        w-full
+        mx-auto
+        grid
+        gap-2
+        lg:gap-10
+        md:grid-cols-2
+        lg:mt-10
+        {# justify-between	 #}
+        {# items-center #}
+        p-4
 
-    <div
-        class="
-            container
-            w-full
-            mx-auto
-            grid
-            grid-cols-2
-            {# justify-between	 #}
-            {# items-center #}
-            p-4
-
-        " 
+    " 
     >
     <div
-        class="text-gray-700 space-y-6"
+        class="text-gray-700 space-y-10 order-2 lg:order-1"
     >
-        <h1 class="font-bold text-4xl text-blue-600"
+        <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl  text-blue-600"
             >Bateaux d'occasion à vendre, <span class="text-gray-700">annonces voiliers et matériel nautique</span></h1>
-        <p>
+        <p class="text-xl md:text-2xl">
             ⚓ Wanaboat.fr, les petites annonces nautiques avec politesse et sans arnaques Votre bateau mérite un meilleur coin !
         </p>
-        <p>Des dizaines de catamarans, dériveurs, foileurs ou bateaux traditionnels. Le bateau qui correspond à votre programme de navigation se trouve sur Wanaboat, c'est certain !</p>
+        <p class="text-xl">
+            Des dizaines de catamarans, dériveurs, foileurs ou bateaux traditionnels. Le bateau qui correspond à votre programme de navigation se trouve sur Wanaboat, c'est certain !
+        </p>
         <p>
             Fait avec ❤️  et un 😷  depuis 2007.
         </p>
     </div>
-    <div>
-        Image right
+    <div class="order-1 lg:order-2">
+        {# {% image './img/old-mariner-1.png', 'test' %} #}
+        <image
+            src="./img/old-mariner-1.png"
+            class="mx-auto"
+        />
     </div>
-</div>
-{# {% include "_nav.njk" %} #}
+</header>

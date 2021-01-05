@@ -32,7 +32,7 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addNunjucksShortcode(
       "markdown",
-      content => `<div class="md-block">${markdown.render(content)}</div>`
+      content => `${markdown.render(content)}`
     );
 
     eleventyConfig.addPassthroughCopy({
@@ -40,6 +40,7 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addPassthroughCopy("vercel.json");
+    eleventyConfig.addPassthroughCopy('img');
 
      // works also with addLiquidShortcode or addJavaScriptFunction
      eleventyConfig.addNunjucksAsyncShortcode("image", async function(src, alt) {

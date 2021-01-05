@@ -1,7 +1,8 @@
 {% extends "_includes/default.njk" %}
 
-{% block title %}Olivier Livet : développeur web, React, Gatsby, Jamstack, Webperf{% endblock %}
-{# {%  var description = test %} #}
+{% block title %}Bateaux d&#x27;occasion à vendre, achat/vente • Wanaboat.fr{% endblock %}
+{% set description = "test" %}
+{% set canonical = "canonical" %}
 
 {% block content %}
   <div
@@ -9,27 +10,31 @@
   >
     <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-4">
       {% for ad in lastads %}
-        <a href="{{ad.slug}}" class="block shadow hover:shadow-md hover:scale-105 transform-gpu transition-transform rounded-sm overflow-hidden">
-          <div class="relative">
+        <a href="{{ad.slug}}" class="block shadow hover:shadow-md hover:scale-105 transform-gpu transition-transform rounded-md overflow-hidden">
+          <div class="relative bg-gray-50">
+          {% if ad.images.url|length > 0 %}
             <div class="absolute w-full top-0 left-0 p-2 pb-4 bg-gradient-to-t from-transparent to-gray-600 text-xs text-white">
-              {{ ad.images.url | length }} photos
+              {{ ad.images.url | length }} photo{% if ad.images.url|length > 1 %}s{% endif %}
             </div>
+          {% endif %}
             <div class="absolute w-full bottom-0 right-0 p-2 pt-4 bg-gradient-to-b from-transparent to-gray-800 text-xs text-white">
-              {{ ad.region }}
+              {{ ad.region }} / {{ ad.department }}
             </div>
+                      {% if ad.images.url|length > 0 %}
+
             <picture>
               <source
                 type="image/avif"
                 srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=300x300/format=avif/quality=40'
-              />
+/>
               <source
                 type="image/webp"
                 srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=300x300/format=webp/quality=40'
-              />
+/>
               <source
                 type="image/jpeg"
                 srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=500x500/format=jpeg/quality=40'
-              />
+/>
 
               <img
                 loading="lazy"
@@ -40,6 +45,13 @@
                 alt='{{ad.name}}'
               />
             </picture>
+            {% else %}
+              <img
+                src='./img/logo.svg'
+                class="p-16"
+                alt='{{ad.name}}'
+              />
+            {% endif %}
           </div>
           <div class="p-2">
             <p class="truncate">{{ ad.name }}</p>
@@ -54,16 +66,20 @@
     {% include "youtube.njk" %}
     {% include "last_posts.njk" %} #}
     </div>
-    <div class="flex w-full justify-center p-4">
-<a href="/annonces/" class='relative bg-blue-500 hover:bg-blue-600 text-white p-6 rounded text-2xl font-bold overflow-visible'>
+    <div class="flex flex-wrap justify-center my-10">
+      <a href="/annonces/" class='w-full lg:w-auto relative mx-5 bg-blue-500 hover:bg-blue-600 text-white p-6 rounded text-2xl font-bold overflow-visible'>
       Parcourir toutes les annonces
-      <div class="absolute top-0 right-0 -mt-4 -mr-4 px-4 py-1 bg-red-500 rounded-full">2000</div>
-  	</a>
-   </div>
-    <div>
-        {% markdown home.fields.body %}
+        <div class="absolute top-0 right-0 -mt-4 -mr-4 px-4 py-1 bg-red-500 rounded-full">2000</div>
+      </a>
+      <a href="/annonces/" class='relative w-full lg:w-autorelative mx-5 bg-blue-500 hover:bg-blue-600 text-white p-6 rounded text-2xl font-bold overflow-visible'>
+        Publiez la vôtre
+        <div class="absolute top-0 right-0 -mt-4 -mr-4 px-4 py-1 bg-red-500 rounded-full">2000</div>
+      </a>
+    </div>
+    <div class="space-y-5">
+      {% markdown home.fields.body %}
     </div>
 
- </div>
-    <div>
-    {% endblock %}
+  </div>
+  <div>
+  {% endblock %}
