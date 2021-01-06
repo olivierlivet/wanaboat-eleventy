@@ -1,7 +1,7 @@
 {% extends "_includes/default.njk" %}
 
 {% block title %}Bateaux d&#x27;occasion à vendre, achat/vente • Wanaboat.fr{% endblock %}
-{% set description = "test" %}
+{% set description = "Bateaux d&#x27;occasion au meilleur prix à vendre en France et en Europe, annonces prix, achat, vente. Wanaboat.fr spécialiste achat/vente bateaux d&#x27;occasion." %}
 {% set canonical = "https://www.wanaboat.fr" %}
 
 {% block content %}
@@ -62,14 +62,13 @@
     {% include "youtube.njk" %}
     {% include "last_posts.njk" %} #}
     </div>
-    <div class="flex flex-wrap justify-center my-10">
-      <a href="/annonces/" class='w-full lg:w-auto relative mx-5 bg-blue-500 hover:bg-blue-600 text-white p-6 rounded text-2xl font-bold overflow-visible'>
+    <div class="flex flex-wrap my-10 space-x-8 xl:justify-center">
+      <a href="/annonces/" class='relative bg-blue-500 hover:bg-blue-600 text-white p-3 rounded text-sm lg:text-xl font-bold overflow-visible'>
         Toutes les annonces
-        <div class="absolute top-0 right-0 -mt-4 -mr-4 px-4 py-1 bg-red-500 rounded-full">2000</div>
+        <div class="absolute top-0 right-0 -mt-2 -mr-2 px-2 py-1 bg-red-500 rounded-full text-xs">2000</div>
       </a>
-      <a href="/annonces/" class='relative w-full medium:w-auto lg:w-autor mx-5 bg-blue-500 hover:bg-blue-600 text-white p-6 rounded text-2xl font-bold overflow-visible'>
+      <a href="/capitainerie/publier/" class='relative bg-blue-500 hover:bg-blue-600 text-white p-3 rounded text-sm lg:text-xl font-bold overflow-visible'>
         Publiez la vôtre
-        <div class="absolute top-0 right-0 -mt-4 -mr-4 px-4 py-1 bg-red-500 rounded-full">2000</div>
       </a>
     </div>
     <div class="space-y-5">

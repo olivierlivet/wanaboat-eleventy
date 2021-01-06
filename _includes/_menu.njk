@@ -7,7 +7,17 @@
         {
             label:"Dériveurs",
             sub:"Bateaux, voiles, accastillage",
-            url:"/catamarans/"
+            url:"/deriveurs/"
+        },
+        {
+            label:"Sportboats",
+            sub:"Bateaux, voiles, accastillage",
+            url:"/sportboats/"
+        },
+        {
+            label:"Course au large",
+            sub:"Bateaux, voiles, accastillage",
+            url:"/course-au-large/"
         }
     ]
  %}
@@ -15,28 +25,41 @@
     class="relative"
     x-data="{ open: false }"
 >
-    <button @click="open = true" class="bg-blue-700 hover:bg-indigo-600 px-3 text-white p-2 rounded-sm">
+    <button
+        @click="open = true"
+        class="bg-blue-700 hover:bg-indigo-600 px-3 text-white p-2 rounded-sm"
+    >
         Menu ↓
     </button>
     <div
         x-show="open"
         @click.away="open = false"
-        class="fixed bg-gray-50 lg:absolute z-20 rounded-md t-20 shadow-md w-max p-3">
-        <ul class="grid lg:grid-cols-2 gap-4">
+        class="fixed lg:absolute z-20 bg-gray-50 lg:rounded-md t-20 shadow-md w-full h-screen lg:h-auto lg:w-max p-3 top-0 xl:top-10 left-0">
+        <div class='mb-4 lg:hidden'>
+            <button
+                @click="open = false" 
+                class="block p-2 px-4 shadow-sm rounded-sm text-grey-700 bg-gray-200 text-sm text-center hover:underline"
+            >Retour</button>
+        </div>
+        <ul class="grid lg:grid-cols-2 gap-2">
             {% for item in navItems %}
                 <li>
-                    <a class="bg-white border-solid border-white hover:border-gray-200 block p-2 px-4 shadow-sm rounded-sm" href="{{ item.url }}" title="Catamarans occasion">
-                        <span class="uppercase text-base text-blue-600">{{ item.label }}</span><br />
-                        <span>{{ item.sub }}</span>
+                    <a class="group hover:bg-blue-700 hover:text-white bg-white border-solid border-white hover:border-gray-200 block p-2 px-4 shadow-sm rounded-sm" href="{{ item.url }}" title="Catamarans occasion">
+                        <span class="group-hover:text-white tracking-widest uppercase text-sm text-blue-600">{{ item.label }}</span><br />
+                        <span class="hidden lg:inline text-sm text-gray-600 group-hover:text-white">{{ item.sub }}</span>
                     </a>
                 </li>
             {% endfor %}
         </ul>
         <div
-            class="grid grid-cols-2 gap-4"
+            class="grid grid-cols-2 gap-4 mt-3"
         >
-            <a href="/capitainerie/publier">Publier votre annonce</a>
-            <a href="/capitainerie/compte">Votre compte</a>
+            <a
+                class="flex items-center justify-center p-2 px-4 shadow-sm rounded-sm text-white bg-green-600 text-sm text-center hover:underline"
+                href="/capitainerie/publier">Publier votre annonce</a>
+            <a
+                class="flex items-center justify-center p-2 px-4 shadow-sm rounded-sm text-grey-700 bg-gray-200 text-sm text-center hover:underline"
+                href="/capitainerie/compte">Votre compte</a>
         </div>
     </div>
 </div>
