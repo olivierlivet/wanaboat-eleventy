@@ -46,7 +46,7 @@
         <p class="text-xl md:text-2xl">
             ⚓ Wanaboat.fr, les petites annonces nautiques avec politesse et sans arnaques. Votre bateau mérite un meilleur coin !
         </p>
-        <p class="text-xl" x-data="{ data: false }">
+        <p class="text-base lg:text-xl" x-data="{ data: false }">
             Des dizaines de
             <a @mouseenter.once="fetch('/catamarans/')" class="text-blue-600 underline" href="https://www.wanaboat.fr/catamarans/">catamarans</a>,
             <a @mouseenter.once="fetch('/deriveurs/')" class="text-blue-600 underline" href="/deriveurs/">dériveurs</a>,
@@ -58,12 +58,11 @@
         </p>
     </div>
     <div class="order-1 md:order-2">
-        {# {% image './img/old-mariner-1.png', 'test' %} #}
         <picture class="block transform xl:-translate-y-8">
             <source type="image/web" srcset="./img/old-mariner-1.webp" />
             <source type="image/png" srcset="./img/old-mariner-1.png" />
             <image
-                loading="lazy"
+                loading="eager"
                 src="./img/old-mariner-1.png"
                 class="mx-auto"
                 alt="Wanaboat.fr, votre bateau mérite un meilleur coin"

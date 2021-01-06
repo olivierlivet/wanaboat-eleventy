@@ -2,68 +2,18 @@
 
 {% block title %}Bateaux d&#x27;occasion à vendre, achat/vente • Wanaboat.fr{% endblock %}
 {% set description = "Bateaux d&#x27;occasion au meilleur prix à vendre en France et en Europe, annonces prix, achat, vente. Wanaboat.fr spécialiste achat/vente bateaux d&#x27;occasion." %}
-{% set canonical = "https://www.wanaboat.fr" %}
+{%
+  set domain = "https://wanaboat-eleventy.vercel.app/"
+%}
+{%
+  set canonical = "https://www.wanaboat.fr"
+%}
 
 {% block content %}
   <div class="mt-5 container mx-auto px-4 md:px-0">
-    <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-4">
-      {% for ad in lastads %}
-        <a href="{{ad.slug}}" class="block shadow hover:shadow-md hover:scale-105 transform-gpu transition-transform rounded-md overflow-hidden">
-          <div class="relative bg-gray-50">
-          {% if ad.images.url|length > 0 %}
-            <div class="absolute w-full top-0 left-0 p-2 pb-4 bg-gradient-to-t from-transparent to-gray-600 text-xs text-white">
-              {{ ad.images.url | length }} photo{% if ad.images.url|length > 1 %}s{% endif %}
-            </div>
-          {% endif %}
-            <div class="absolute w-full bottom-0 right-0 p-2 pt-4 bg-gradient-to-b from-transparent to-gray-800 text-xs text-white">
-              {{ ad.region }} / {{ ad.department }}
-            </div>
-            {% if ad.images.url|length > 0 %}
-            <picture>
-              <source
-                type="image/avif"
-                srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=300x300/format=avif/quality=40'
-              />
-              <source
-                type="image/webp"
-                srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=300x300/format=webp/quality=40'
-              />
-              <source
-                type="image/jpeg"
-                srcset='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=500x500/format=jpeg/quality=40'
-              />
-              <img
-                loading="lazy"
-                heigth="240"
-                width="240"
-                class='w-full'
-                src='https://i3sh32xk.twic.pics/photos{{ ad.images.url[0] }}?twic=v1/cover=400x400/format=avif/quality=40'
-                alt='{{ad.name}}'
-              />
-            </picture>
-            {% else %}
-              <img
-                src='./img/logo.svg'
-                class="p-16"
-                alt='{{ad.name}}'
-              />
-            {% endif %}
-          </div>
-          <div class="p-2">
-            <p class="truncate">{{ ad.name }}</p>
-            <div>
-              <span class="rounded-md p-1 text-sm bg-green-100 text-gray-800">{{ ad.price }}€</span>
-            </div>
-          </div>
-        </a>
-      {% endfor %}
-      {# {% image "./src/images/cat.jpg", "photo of my cat" %} #}
-      {# {% include "featured.njk" %}
-    {% include "youtube.njk" %}
-    {% include "last_posts.njk" %} #}
-    </div>
+    {% include "ads_list.njk" %}
     <div class="flex flex-wrap my-10 space-x-8 xl:justify-center">
-      <a href="/annonces/" class='relative bg-blue-500 hover:bg-blue-600 text-white p-3 rounded text-sm lg:text-xl font-bold overflow-visible'>
+      <a @mouseenter.once="fetch('/annonces/')" href="/annonces/" class='relative bg-blue-500 hover:bg-blue-600 text-white p-3 rounded text-sm lg:text-xl font-bold overflow-visible'>
         Toutes les annonces
         <div class="absolute top-0 right-0 -mt-2 -mr-2 px-2 py-1 bg-red-500 rounded-full text-xs">756</div>
       </a>
