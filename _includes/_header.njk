@@ -41,13 +41,17 @@
     <div
         class="text-gray-700 space-y-8 order-2 md:order-1"
     >
-        <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl  text-blue-600"
+        <h1 class="font-bold text-3xl tracking-tight md:text-4xl lg:text-5xl xl:text-6xl  text-blue-600"
             >Bateaux d'occasion à vendre, <span class="text-gray-700">annonces voiliers et matériel nautique</span></h1>
         <p class="text-xl md:text-2xl">
             ⚓ Wanaboat.fr, les petites annonces nautiques avec politesse et sans arnaques. Votre bateau mérite un meilleur coin !
         </p>
-        <p class="text-xl">
-            Des dizaines de <a class="text-blue-600 underline" href="/catamarans/">catamarans</a>, <a class="text-blue-600 underline" href="/deriveurs/">dériveurs</a>, <a class="text-blue-600 underline" href="/sportboats/">sportboats</a> foileurs ou bateaux traditionnels. Le bateau qui correspond à votre programme de navigation se trouve sur Wanaboat, c'est certain !
+        <p class="text-xl" x-data="{ data: false }">
+            Des dizaines de
+            <a @mouseenter.once="fetch('/catamarans/')" class="text-blue-600 underline" href="https://www.wanaboat.fr/catamarans/">catamarans</a>,
+            <a @mouseenter.once="fetch('/deriveurs/')" class="text-blue-600 underline" href="/deriveurs/">dériveurs</a>,
+            <a @mouseenter.once="fetch('/sportboats/')" class="text-blue-600 underline" href="/sportboats/">sportboats</a>
+            foileurs ou bateaux traditionnels. Le bateau qui correspond à votre programme de navigation se trouve sur Wanaboat, c'est certain !
         </p>
         <p>
             Fait avec ❤️  et un 😷  depuis 2007.
