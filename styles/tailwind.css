@@ -7,3 +7,47 @@
     color: transparent;
   }
 }
+@layer components {
+
+  .markdown {
+    @apply text-lg text-gray-700 leading-normal;
+  }
+  .markdown > * + *,  & li + li, & li > p + p {
+      @apply mt-6;
+  }
+  .markdown strong {
+    @apply text-black font-bold;
+  }
+  .markdown a {
+    @apply text-black font-semibold;
+  }
+  .markdown strong a {
+    @apply font-bold;
+  }
+  .markdown h2 {
+    @apply leading-tight text-2xl font-bold text-gray-900 mb-2 mt-10;
+  }
+  .markdown h3 {
+    @apply leading-tight text-lg font-bold text-gray-900 mt-8 -mb-2;
+  }
+  .markdown h4 {
+    @apply leading-tight text-base font-bold text-gray-900 mt-8 -mb-2;
+  }
+  .markdown code {
+    @apply font-mono text-sm inline bg-gray-100 px-1;
+  }
+  .markdown pre code {
+    @apply block bg-black p-4 rounded;
+  }
+  .markdown blockquote {
+    @apply border-l-4 border-gray-100 pl-4 italic;
+  }
+  .markdown ul, .markdown ol {
+    @apply pl-5;
+    @screen sm {
+      @apply pl-10;
+    }
+  }
+
+
+}
