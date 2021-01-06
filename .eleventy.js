@@ -3,6 +3,7 @@ const Image = require("@11ty/eleventy-img");
 const svgContents = require("eleventy-plugin-svg-contents");
 
 const markdown = require("markdown-it")({ html: true });
+const { minify } = require("terser");
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(svgContents);
@@ -12,6 +13,20 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "./_tmp/style.css": "./style.css" });
     eleventyConfig.addShortcode("version", function () {
         return String(Date.now());
+    });
+
+    eleventyConfig.addNunjucksAsyncFilter("jsmin", async function (
+      code,
+      callback
+    ) {
+      try {
+        const minified = await minify(code);
+        callback(null, minified.code);
+      } catch (err) {
+        console.error("Terser error: ", err);
+        // Fail gracefully.
+        callback(null, code);
+      }
     });
 
     eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
