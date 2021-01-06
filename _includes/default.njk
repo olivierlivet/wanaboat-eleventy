@@ -5,6 +5,13 @@
       {% block title %}Does it work?{% endblock %}
     </title>
     <meta charset="UTF-8"/>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-278678-12"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-278678-12');
+    </script>
     {% if description %}
       <meta name="description" content="{{description}}"/>
     {% endif %}
