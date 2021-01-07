@@ -4,6 +4,7 @@ const svgContents = require("eleventy-plugin-svg-contents");
 
 const markdown = require("markdown-it")({ html: true });
 const { minify } = require("terser");
+const {documentToHtmlString} = require('@contentful/rich-text-html-renderer');
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(svgContents);
@@ -14,6 +15,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode("version", function () {
         return String(Date.now());
     });
+
+    eleventyConfig.addShortcode('documentToHtmlString', documentToHtmlString);
 
     eleventyConfig.addNunjucksAsyncFilter("jsmin", async function (
       code,

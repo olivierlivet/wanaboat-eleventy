@@ -1,0 +1,42 @@
+<header
+    class="
+        container
+        w-full
+        px-4 md:px-0
+        mx-auto
+        grid
+        gap-2
+        lg:gap-10
+        md:grid-cols-2
+        md:mt-10
+    " 
+    >
+    <div
+        class="text-gray-700 space-y-8 order-2 md:order-1"
+    >
+        <h1 class="font-bold text-3xl tracking-tight md:text-4xl lg:text-5xl xl:text-6xl  text-blue-600">
+            {{ wording.h1 | safe }}
+        </h1>
+        <p class="text-xl md:text-2xl">
+            {{ wording.h2 | safe }}
+        </p>
+        <p class="text-base lg:text-xl">
+            {{ wording.intro | safe }}
+        </p>
+        <p>
+            Fait avec ❤️ et un 😷 depuis 2007.
+        </p>
+    </div>
+    <div class="order-1 md:order-2">
+        <picture class="block transform xl:-translate-y-8">
+            <source type="image/web" srcset="https://wanaboat-eleventy.vercel.app/img/old-mariner-1.webp" />
+            {# <source type="image/png" srcset="./img/old-mariner-1.png" /> #}
+            <image
+                loading="eager"
+                src="https://wanaboat-eleventy.vercel.app/img/old-mariner-1.webp"
+                class="mx-auto"
+                alt="Wanaboat.fr, votre bateau mérite un meilleur coin"
+            />
+        </picture>
+    </div>
+</header>

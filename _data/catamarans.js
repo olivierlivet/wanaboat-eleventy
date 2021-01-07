@@ -8,17 +8,9 @@ const client = contentful.createClient({
 });
 
 module.exports = function() {
-  return client.getEntries({
-    content_type: 'ad',
-    order: '-sys.createdAt',
-    limit: 6
-  })
+  return client.getEntry('4A30YD7j2K7y2ti3ZGxwwg')
   .then(function(response) {
-    const page = response.items
-    .map(function(page) {
-      page.fields.date= new Date(page.sys.updatedAt);
-      return page.fields;
-    });
+    const page = response
     return page;
   })
   .catch(console.error);

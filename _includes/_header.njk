@@ -1,7 +1,5 @@
 <nav
     class="
-        container
-        mx-auto
         w-full
         bg-white
         z-20
@@ -15,7 +13,7 @@
                 {% include '../src/images/logo.svg' %}
             </span>
             <span class="font-bold text-gray-700 text-xl">
-                Wanaboat.fr
+                {{ maintitle }}
             <span>
         </a>
         <div class="flex items-center">
@@ -23,50 +21,3 @@
         </div>
     </div>
 </nav>
-<header
-    class="
-        container
-        w-full
-        px-4 md:px-0
-        mx-auto
-        grid
-        gap-2
-        lg:gap-10
-        md:grid-cols-2
-        md:mt-10
-        {# justify-between	 #}
-        {# items-center #}
-    " 
-    >
-    <div
-        class="text-gray-700 space-y-8 order-2 md:order-1"
-    >
-        <h1 class="font-bold text-3xl tracking-tight md:text-4xl lg:text-5xl xl:text-6xl  text-blue-600"
-            >Bateaux d'occasion à vendre, <span class="text-gray-700">annonces voiliers et matériel nautique</span></h1>
-        <p class="text-xl md:text-2xl">
-            ⚓ Wanaboat.fr, les petites annonces nautiques avec politesse et sans arnaques. Votre bateau mérite un meilleur coin !
-        </p>
-        <p class="text-base lg:text-xl" x-data="{ data: false }">
-            Des dizaines de
-            <a @mouseenter.once="fetch('/catamarans/')" class="text-blue-600 underline" href="https://www.wanaboat.fr/catamarans/">catamarans</a>,
-            <a @mouseenter.once="fetch('/deriveurs/')" class="text-blue-600 underline" href="/deriveurs/">dériveurs</a>,
-            <a @mouseenter.once="fetch('/dayboats-sportboats/')" class="text-blue-600 underline" href="/dayboats-sportboats/">sportboats</a>
-            foileurs ou bateaux traditionnels. Le bateau qui correspond à votre programme de navigation se trouve sur Wanaboat, c'est certain !
-        </p>
-        <p>
-            Fait avec ❤️ et un 😷 depuis 2007.
-        </p>
-    </div>
-    <div class="order-1 md:order-2">
-        <picture class="block transform xl:-translate-y-8">
-            <source type="image/web" srcset="https://wanaboat-eleventy.vercel.app/img/old-mariner-1.webp" />
-            {# <source type="image/png" srcset="./img/old-mariner-1.png" /> #}
-            <image
-                loading="eager"
-                src="https://wanaboat-eleventy.vercel.app/img/old-mariner-1.webp"
-                class="mx-auto"
-                alt="Wanaboat.fr, votre bateau mérite un meilleur coin"
-            />
-        </picture>
-    </div>
-</header>

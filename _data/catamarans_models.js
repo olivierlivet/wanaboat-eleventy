@@ -9,9 +9,10 @@ const client = contentful.createClient({
 
 module.exports = function() {
   return client.getEntries({
-    content_type: 'ad',
-    order: '-sys.createdAt',
-    limit: 6
+    content_type: 'model',
+    order: 'fields.name',
+    limit: 100,
+    "fields.refUnivers.sys.id": '4A30YD7j2K7y2ti3ZGxwwg'
   })
   .then(function(response) {
     const page = response.items

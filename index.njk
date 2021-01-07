@@ -8,8 +8,12 @@
 {%
   set canonical = "https://www.wanaboat.fr"
 %}
+{%
+  set h1 = "Bateaux d'occasion à vendre, <span class='text-gray-700'>annonces voiliers et matériel nautique</span>"
+%}
 
 {% block content %}
+  {% include "hero.njk" %}
   <div class="mt-5 container mx-auto px-4 md:px-0">
     {% include "ads_list.njk" %}
     <div class="flex flex-wrap my-10 space-x-8 xl:justify-center">

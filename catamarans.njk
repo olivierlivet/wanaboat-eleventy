@@ -1,0 +1,62 @@
+{% extends "_includes/default.njk" %}
+
+{% block title %}Bateaux d&#x27;occasion à vendre, achat/vente • Wanaboat.fr{% endblock %}
+{% set description = "Bateaux d&#x27;occasion au meilleur prix à vendre en France et en Europe, annonces prix, achat, vente. Wanaboat.fr spécialiste achat/vente bateaux d&#x27;occasion." %}
+{%
+  set domain = "https://wanaboat-eleventy.vercel.app"
+%}
+{%
+  set canonical = "https://www.wanaboat.fr"
+%}
+{%
+  set maintitle = "Wanaboat.fr"
+%}
+
+{%
+  set wording = {
+    h1: "Catamarans d'occasion, <span class='text-gray-700'>achat/vente annonces au meilleur prix</span>",
+    h2: "⚓ Wanaboat.fr, les petites annonces du catamaran de sport avec politesse et sans arnaques. Votre cata mérite un meilleur coin !",
+    intro: "
+            Des dizaines de
+            <a class='text-blue-600 underline' href='/catamarans/hobie-cat/'>hobie cat</a>,
+            <a class='text-blue-600 underline' href='/catamarans/formule-18/'>formule 18</a>,
+            <a class='text-blue-600 underline' href='/catamarans/nacra/'>nacra</a>
+            . Des catamarans de régate ou de raid, des bateaux foilers ou traditionnel. Le catamaran qui conviendra à votre programme de navigation se trouve sur Wanaboat, c\'est certain !
+    "
+  }
+%}
+
+{% block content %}
+  {% include "hero.njk" %}
+  <div class="mt-5 px-4 md:px-0">
+    
+    {% include "ads_list_catamarans.njk" %}
+
+    <div class="flex flex-wrap my-10 space-x-8 xl:justify-center">
+      <a
+        href="/liste/"
+        class='relative bg-blue-500 hover:bg-blue-600 text-white p-3 rounded text-sm lg:text-xl font-bold overflow-visible'>
+        Toutes les annonces
+        <div style="background:#e60000;" class="absolute top-0 right-0 -mt-2 -mr-2 px-2 py-1 bg-red-500 rounded-full text-xs">756</div>
+      </a>
+      <a
+        href="/capitainerie/publier/"
+        class='relative bg-blue-500 hover:bg-blue-600 text-white p-3 rounded text-sm lg:text-xl font-bold overflow-visible'>
+        Publiez la vôtre
+      </a>
+    </div>
+
+    <div class="grid xs:grid-cols-2 lg:grid-cols-6 gap-10">
+      {% for model in catamarans_models %} 
+        <a class="block" href="/{{ model.slug }}">
+          {{ model.name }}
+        </a>
+      {% endfor %}
+    </div>
+
+    <div class="space-y-5 markdown">
+      {% documentToHtmlString catamarans.fields.descLong %}
+    </div>
+
+  </div>
+  {% endblock %}

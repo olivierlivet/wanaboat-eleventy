@@ -6,6 +6,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@11ty/eleventy-img": "^0.6.0",
+    "@contentful/rich-text-html-renderer": "^14.1.2",
     "alpinejs": "^2.8.0",
     "clean-css-cli": "^4.3.0",
     "contentful": "^8.1.6",
