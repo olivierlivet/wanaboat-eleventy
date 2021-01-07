@@ -29,12 +29,12 @@
     </div>
     <div class="order-1 md:order-2">
         <picture class="block transform xl:-translate-y-8">
-            <source type="image/web" srcset="https://wanaboat-eleventy.vercel.app/img/old-mariner-1.webp" />
+            <source type="image/web" srcset="{{ heroimage }}" />
             {# <source type="image/png" srcset="./img/old-mariner-1.png" /> #}
             <image
                 loading="eager"
-                src="https://wanaboat-eleventy.vercel.app/img/old-mariner-1.webp"
-                class="mx-auto"
+                src="{{ heroimage }}"
+                class="w-max mx-auto object-cover rounded xl:rounded-full"
                 alt="Wanaboat.fr, votre bateau mérite un meilleur coin"
             />
         </picture>
